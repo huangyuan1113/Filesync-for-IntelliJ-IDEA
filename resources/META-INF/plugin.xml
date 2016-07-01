@@ -1,0 +1,49 @@
+<idea-plugin version="2">
+  <id>org.filesync.idea.plugin</id>
+  <name>Filesync</name>
+  <version>1.0.3</version>
+  <vendor email="o.jacquemart@gmail.com" url="http://github.com/ojacquemart">Olivier Jacquemart</vendor>
+
+  <description><![CDATA[
+      The FileSync plugin allows you to synchronize files with an another target directory.<br>
+      Instead of manually copy files from a directory to an another, this plugin launches the copy
+      on each save action.
+      ]]></description>
+
+  <change-notes><![CDATA[
+
+      ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="141.0"/>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+    <component>
+      <implementation-class>org.filesync.idea.plugin.FileSyncPlugin</implementation-class>
+      <option name="workspace" value="true"/>
+    </component>
+  </project-components>
+
+  <actions>
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceInterface="org.filesync.idea.plugin.settings.Settings"
+                        serviceImplementation="org.filesync.idea.plugin.settings.Settings">
+    </applicationService>
+
+    <applicationConfigurable implementation="org.filesync.idea.plugin.ui.Configuration"></applicationConfigurable>
+  </extensions>
+</idea-plugin>
